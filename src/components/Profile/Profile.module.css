@@ -1,0 +1,14 @@
+
+.content{
+  background-color: #181816;
+  color: #919183;
+}
+.profileInfo{
+  grid-area: profileInfo;
+  max-height: 300px;
+}
+.myPosts{
+  grid-area: myPosts;
+}
+
+

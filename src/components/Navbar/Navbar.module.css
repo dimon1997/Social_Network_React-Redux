@@ -1,0 +1,23 @@
+.globalNav{
+  background-color: #131304;
+}
+.nav{
+    grid-area: nav;
+    padding: 15px;
+    border-bottom: 1px solid lightgrey;
+    background-color: #131304;
+  }
+  a{
+    color: #919183;
+    font-weight: 550;
+    text-decoration: none;
+  }
+
+a:hover{
+    color: #262621;
+    text-shadow: 0.5px 0 rgb(30, 115, 165), -0.5px 0 rgb(30, 115, 165), 0 0.5px rgb(30, 115, 165), 0 -0.5px rgb(30, 115, 165);
+  }
+a:focus{
+  color: #262621;
+  text-shadow: 0.5px 0 rgb(30, 115, 165), -0.5px 0 rgb(30, 115, 165), 0 0.5px rgb(30, 115, 165), 0 -0.5px rgb(30, 115, 165);
+}

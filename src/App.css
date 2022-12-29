@@ -1,0 +1,29 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.app-wrapper{
+  display: grid;
+  grid-template-areas: 
+  "header header"
+  "nav content";
+
+  grid-template-rows: 0.1fr 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+}
+
+
+.app-wrapper-content{
+    grid-area: content;
+    background-color: azure;
+}
+.global-app{
+  width: 60%;
+  margin: auto;
+}
+
+/*
+#F1F1E5	#B5B5AE	#9D9D4B	#F8F8EF	#F8F8F1
+*/

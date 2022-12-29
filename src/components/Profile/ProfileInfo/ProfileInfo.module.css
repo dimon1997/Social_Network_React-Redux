@@ -1,0 +1,22 @@
+.profileHeader img{
+    width: 100%;
+    height: 140px;
+}
+.descriptionBlock{
+    padding: 10px;
+    display: grid;
+    grid-template-areas: 
+    "discriptionPhoto discriptionInfo";
+
+    grid-template-columns: 1fr 10fr;
+}
+.discriptionPhoto{
+    grid-area: discriptionPhoto;
+}
+.discriptionPhoto img{
+    width: 80px;
+}
+.discriptionInfo{
+    grid-area: discriptionInfo;
+    padding-left: 10px;
+}

@@ -1,0 +1,39 @@
+.item{
+    width: 75%;
+    background-color: #181816;
+    box-shadow: 0.5px 0 rgb(30, 115, 165), -0.5px 0 rgb(30, 115, 165), 0 0.5px rgb(30, 115, 165), 0 -0.5px rgb(30, 115, 165);
+    border-radius: 4px;
+    margin-left: 5px;
+    margin-top: 4px;
+    display: grid;
+    grid-template-areas: 
+    "avaPost messagePost";
+
+    grid-template-columns: 1fr 10fr;
+}
+.avaPost{
+    grid-area: avaPost;
+}
+.avaPost img{
+    height: 55px;
+    width: 50px;
+}
+.img{
+    width: 5px;
+}
+.messagePost{
+    grid-area: messagePost;
+    padding-top: 10px;
+    margin-left: 10px;
+
+}
+.message{
+   
+}
+.likeCounter{
+    
+}
+.img{
+    width: 50px;
+    border-radius: 25px;
+}
