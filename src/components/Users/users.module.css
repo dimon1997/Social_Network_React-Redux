@@ -1,5 +1,7 @@
 .ava{
     width: 50px;
+    border: 0.3px solid;
+    border-color: #919183;
 }
 .buttonF{
     width: 50px;
@@ -7,6 +9,7 @@
 }
 .selectedPage{
     font-weight: bold;
+    color: white;
 }
 div{
     color:#919183;
