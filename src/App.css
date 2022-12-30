@@ -17,7 +17,7 @@
 
 .app-wrapper-content{
     grid-area: content;
-    background-color: azure;
+    background-color: #181816
 }
 .global-app{
   width: 60%;
