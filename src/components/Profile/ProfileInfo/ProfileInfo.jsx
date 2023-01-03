@@ -20,8 +20,8 @@ const ProfileInfo = (props) => {
         </div>
         <div className={s.discriptionInfo}>
           <div>
-            <h2>Dmytro Lavrynchuk</h2>
-            <p>Informations about me</p>
+            <h2>{props.profile.fullName}</h2>
+            <p>Informations about me userId: {props.profile.userId}</p>
           </div>
         </div>
       </div>
