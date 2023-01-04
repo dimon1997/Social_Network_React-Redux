@@ -16,7 +16,7 @@ let Users = (props) =>{
   
 
     return (
-        <div>
+        <div className="userPage">
         <div>
           {pages.map((p) => {
             return (
