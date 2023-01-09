@@ -1,3 +1,5 @@
+import { userAPI } from "../../api/api";
+
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
@@ -55,13 +57,13 @@ const usersReducer = (state = initialState, action) => {
   }
 };
 
-export const follow = (userId) => {
+export const followSuccess = (userId) => {
   return {
     type: FOLLOW,
     userId,
   };
 };
-export const unfollow = (userId) => {
+export const unfollowSuccess = (userId) => {
   return {
     type: UNFOLLOW,
     userId,
@@ -99,5 +101,45 @@ export const toogleFollowingProgress = (isFetching, userId) => {
   };
 };
 
+
+export const getUsers = (currentPage, pageSize) => {
+  return (dispatch) => {
+    dispatch(toogleIsFetching(true));
+    userAPI.getUsers(currentPage, pageSize).then((data) => {
+      dispatch(toogleIsFetching(false));
+      dispatch(setUsers(data.items));
+      dispatch(setTotalUsersCount(data.totalCount));
+      });
+  }
+  
+} 
+export const follow = (userId) => {
+  return(dispatch) => {
+    dispatch(toogleFollowingProgress(true, userId));
+                    userAPI.follow(userId)                    
+                      .then((response) => {
+                        if (response.data.resultCode === 0) {
+                          dispatch(followSuccess(userId));
+                        }
+                        dispatch(toogleFollowingProgress(false, userId));
+                      });
+  }
+  
+  
+}
+export const unfollow = (userId) => {
+  return (dispatch) => {
+    dispatch(toogleFollowingProgress(true, userId));
+    userAPI.unfollow(userId)                    
+      .then((response) => {
+        if (response.data.resultCode === 0) {
+          dispatch(unfollowSuccess(userId));
+        }
+        dispatch(toogleFollowingProgress(false, userId));
+      });
+  }
+  
+  
+} 
 
 export default usersReducer;
