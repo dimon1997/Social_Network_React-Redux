@@ -3,29 +3,16 @@ import { connect } from "react-redux";
 import { follow, unfollow, setCurrentPage, toogleFollowingProgress, getUsers} from "../redux/users-reducer";
 import Users from "./Users";
 import Preloader from "../common/preloader/Preloader";
+import { withAuthRedirect } from "../hoc/withAuthRedirect";
 
 
 
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.getUsers(this.props.currentPage, this.props.pageSize);
-    // this.props.toogleIsFetching(true);
-    // userAPI.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
-    //     this.props.toogleIsFetching(false);
-    //     this.props.setUsers(data.items);
-    //     this.props.setTotalUsersCount(data.totalCount);
-    //   });
-  }
+    }
   onPageChanged = (pageNumber) => {
     this.props.getUsers(pageNumber, this.props.pageSize);
-
-    // this.props.getUsers(this.props.currentPage, this.props.pageSize)
-    // this.props.setCurrentPage(pageNumber);
-    // this.props.toogleIsFetching(true);
-    // userAPI.getUsers(pageNumber, this.props.pageSize).then((data) => {
-    //     this.props.toogleIsFetching(false);
-    //     this.props.setUsers(data.items);
-    //   });
   };
 
   render() {
@@ -81,8 +68,8 @@ let mapStateToProps = (state) => {
 // };
 
 
-
-export default connect(mapStateToProps, {follow, unfollow, setCurrentPage, toogleFollowingProgress, getUsers}) (UsersContainer);
+let withRedirect = withAuthRedirect(UsersContainer);
+export default connect(mapStateToProps, {follow, unfollow, setCurrentPage, toogleFollowingProgress, getUsers}) (withRedirect);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
 
