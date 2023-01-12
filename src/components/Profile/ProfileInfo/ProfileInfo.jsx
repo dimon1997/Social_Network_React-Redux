@@ -1,5 +1,7 @@
 import Preloader from "../../common/preloader/Preloader";
 import s from "./ProfileInfo.module.css";
+import ProfileStatus from "./ProfileStatus";
+
 
 const ProfileInfo = (props) => {
   if(!props.profile){
@@ -8,12 +10,12 @@ const ProfileInfo = (props) => {
 
   return (
     <div>
-      <div className={s.profileHeader}>
+      {/* <div className={s.profileHeader}>
         <img
           src="https://img.freepik.com/free-vector/night-ocean-landscape-full-moon-and-stars-shine_107791-7397.jpg?w=2000"
           alt=""
         />
-      </div>
+      </div> */}
       <div className={s.descriptionBlock}>
         <div className={s.discriptionPhoto}>
           <img src={props.profile.photos.large} alt="" />
@@ -22,6 +24,7 @@ const ProfileInfo = (props) => {
           <div>
             <h2>{props.profile.fullName}</h2>
             <p>Informations about me userId: {props.profile.userId}</p>
+            <ProfileStatus status={"Hello my friends"}/>
           </div>
         </div>
       </div>
