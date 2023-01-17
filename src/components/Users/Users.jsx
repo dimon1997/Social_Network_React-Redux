@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./users.module.css";
 import userPhoto from "../../assets/photoUsers/user.png";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -16,21 +16,69 @@ let Users = (props) => {
       <div>
         {pages.map((p) => {
           return (
-            <span
-              className={props.currentPage === p && s.selectedPage}
+            <Link
+              className={s.selectedPage}
+              //className={props.currentPage === p && s.selectedPage}
               onClick={(e) => {
                 props.onPageChanged(p);
               }}
               key={p}
             >
               {p}
-            </span>
+            </Link>
           );
         })}
       </div>
       {props.users.map((u) => (
         <div key={u.id}>
-          <span>
+          <div className={s.userItem}>
+            <div className={s.followBlock}>
+              {u.followed ? (
+                <button
+                  disabled={props.followingInProgres.some((id) => id === u.id)}
+                  onClick={() => {
+                    props.unfollow(u.id);
+                  }}
+                >
+                  Unfollow
+                </button>
+              ) : (
+                <button
+                  disabled={props.followingInProgres.some((id) => id === u.id)}
+                  onClick={() => {
+                    props.follow(u.id);
+                  }}
+                >
+                  Follow
+                </button>
+              )}
+            </div>
+            <div className={s.avaBlock}>
+              <div className={s.ava}>
+                <NavLink to={"/profile/" + u.id}>
+                  <img
+                    src={u.photos.small != null ? u.photos.small : userPhoto}
+                    alt="don't load"
+                  />
+                </NavLink>
+              </div>
+            </div>
+            <div className={s.discriptionBlock}>
+              <div className={s.discription}>
+                <div>User name:<p>{u.name}</p> </div>
+                <div>Status: <p>{u.status}</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Users;
+
+/* <span>
             <div>
               <NavLink to={"/profile/" + u.id}>
                 <img
@@ -42,14 +90,22 @@ let Users = (props) => {
             </div>
             <div>
               {u.followed ? (
-                <button disabled={props.followingInProgres.some(id => id === u.id)}
-                  onClick={() => {props.unfollow(u.id)}}>
-                    Unfollow
+                <button
+                  disabled={props.followingInProgres.some((id) => id === u.id)}
+                  onClick={() => {
+                    props.unfollow(u.id);
+                  }}
+                >
+                  Unfollow
                 </button>
               ) : (
-                <button disabled={props.followingInProgres.some(id => id === u.id)}
-                  onClick={() => {props.follow(u.id)}}>
-                    Follow
+                <button
+                  disabled={props.followingInProgres.some((id) => id === u.id)}
+                  onClick={() => {
+                    props.follow(u.id);
+                  }}
+                >
+                  Follow
                 </button>
               )}
             </div>
@@ -63,11 +119,4 @@ let Users = (props) => {
               <div>{"u.location.country"}</div>
               <div>{"u.location.city"}</div>
             </span>
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-export default Users;
+          </span> */
