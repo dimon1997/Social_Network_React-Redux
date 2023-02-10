@@ -1,4 +1,4 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore, compose } from "redux";
 import { reducer as formReducer } from "redux-form";
 import thunk from "redux-thunk";
 import appReducer from "./app-reducer";
@@ -16,6 +16,9 @@ let reducers = combineReducers({
   app: appReducer
 });
 
-let store = createStore(reducers, applyMiddleware(thunk));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers,  composeEnhancers(applyMiddleware(thunk)));
+
+//let store = createStore(reducers, applyMiddleware(thunk));
 
 export default store;

@@ -1,0 +1,12 @@
+.selectedPage{
+    font-weight: bold;
+    color: #919183;
+}
+.selectedPage:hover{
+    color: #262621;
+    text-shadow: 0.5px 0 rgb(30, 115, 165), -0.5px 0 rgb(30, 115, 165), 0 0.5px rgb(30, 115, 165), 0 -0.5px rgb(30, 115, 165);
+  }
+.selectedPage:focus{
+  color: #262621;
+  text-shadow: 0.5px 0 rgb(30, 115, 165), -0.5px 0 rgb(30, 115, 165), 0 0.5px rgb(30, 115, 165), 0 -0.5px rgb(30, 115, 165);
+}
