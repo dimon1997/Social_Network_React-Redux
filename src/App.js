@@ -12,10 +12,10 @@ import { connect } from "react-redux";
 import { initializeApp } from "./components/redux/app-reducer";
 import Preloader from "./components/common/preloader/Preloader";
 //import { withSuspense } from "./components/hoc/withSuspense";
-//import DialogsContainer from "./components/Dialogs/DialogsContainer";
-const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
-//import ProfileContainer from "./components/Profile/ProfileContainer";
-const ProfileContainer = React.lazy(()=> import ("./components/Profile/ProfileContainer"));
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
+//const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
+import ProfileContainer from "./components/Profile/ProfileContainer";
+//const ProfileContainer = React.lazy(()=> import ("./components/Profile/ProfileContainer"));
 
 class App extends Component {
   componentDidMount() {
